@@ -18,6 +18,7 @@ public class EscolaParaCadastrarDTO
     public string Email { get; set; }
 
     [Required(ErrorMessage = "O CNPJ da escola é obrigatório.")]
-    [RegularExpression(@"^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$", ErrorMessage = "Informe um CNPJ válido no formato xx.xxx.xxx/xxxx-xx.")]
-    public string Cnpj { get; set; }  
+    [RegularExpression(@"^\d{14}$", ErrorMessage = "Informe um CNPJ válido contendo apenas dígitos de 14 caracteres.")]
+    public string Cnpj { get; set; }
+
 }
