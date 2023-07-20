@@ -44,4 +44,9 @@ public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity :
     {
         return Db.SaveChanges();
     }
+    
+    public void Remover(int id)
+    {
+        DbSet.Remove(DbSet.Find(id));
+    }
 }
