@@ -10,7 +10,7 @@ public class Escola : Entity
     public string Email { get; private set; }
     public string Cnpj { get; private set; }
     
-    public List<Turma> Turmas { get; private set; }
+    public List<Turma> Turmas { get; private set; } = new List<Turma>();
     
     public Escola()
     {

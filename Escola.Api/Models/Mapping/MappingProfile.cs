@@ -1,0 +1,14 @@
+﻿using AutoMapper;
+using Escola.Api.Models.DTO;
+using Escola.Api.Models.TO;
+
+namespace Escola.Api.Models.Mapping;
+
+public class MappingProfile : Profile
+{
+    public MappingProfile()
+    {
+        CreateMap<EscolaParaCadastrarDTO, Escola>();
+        CreateMap<Escola, EscolaTO>();
+    }
+}
