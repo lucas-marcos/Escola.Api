@@ -11,12 +11,17 @@ public class EscolaServices : IEscolaServices
     {
         _escolaRepository = escolaRepository;
     }
-    
+
     public Models.Escola CadastrarEscola(Models.Escola escolaModel)
     {
         _escolaRepository.Adicionar(escolaModel);
         _escolaRepository.Salvar();
 
         return escolaModel;
+    }
+
+    public List<Models.Escola> RetornarTodasEscolas()
+    {
+        return _escolaRepository.BuscarTodos().ToList();
     }
 }

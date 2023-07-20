@@ -26,4 +26,12 @@ public class EscolaController : ControllerBase
         return Ok(_mapper.Map<EscolaTO>(escola));
     }
     
+    [HttpGet]
+    public ActionResult<List<EscolaTO>> RetornarTodasEscolas()
+    {
+        var escolas = _escolaServices.RetornarTodasEscolas();
+        
+        return Ok(_mapper.Map<List<EscolaTO>>(escolas));
+    }
+    
 }
