@@ -9,6 +9,7 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<EscolaParaCadastrarDTO, Escola>();
+        CreateMap<EscolaParaEditarDTO, Escola>();
         CreateMap<Escola, EscolaTO>();
     }
 }

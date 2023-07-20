@@ -41,4 +41,12 @@ public class EscolaController : ControllerBase
 
         return Ok();
     }
+
+    [HttpPut]
+    public ActionResult<EscolaTO> EditarEscola(EscolaParaEditarDTO escolaParaEditar)
+    {
+        var escola =  _escolaServices.EditarEscola(_mapper.Map<Models.Escola>(escolaParaEditar));
+        
+        return Ok(_mapper.Map<EscolaTO>(escola));
+    }
 }

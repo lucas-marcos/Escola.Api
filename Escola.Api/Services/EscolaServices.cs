@@ -33,4 +33,16 @@ public class EscolaServices : IEscolaServices
         _escolaRepository.Remover(escolaId);
         _escolaRepository.Salvar();
     }
+
+    public Models.Escola EditarEscola(Models.Escola escolaParaAtualizar)
+    {
+        var escola = _escolaRepository.BuscarPorId(escolaParaAtualizar.Id) ?? throw new PontoIdException("Escola não encontrada");
+
+        escola.Atualizar(escolaParaAtualizar);
+        
+        _escolaRepository.Atualizar(escola);
+        _escolaRepository.Salvar();
+
+        return escola;
+    }
 }
