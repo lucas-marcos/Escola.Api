@@ -22,5 +22,11 @@ public class ApplicationDbContext : DbContext
         {
             property.SetColumnType("decimal(18, 6)");
         }
+        
+        builder.Entity<Models.Escola>()
+            .HasMany(p => p.Turmas)
+            .WithOne(f => f.Escola)
+            .HasForeignKey(f => f.EscolaId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
