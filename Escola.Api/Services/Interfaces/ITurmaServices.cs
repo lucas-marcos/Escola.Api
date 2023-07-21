@@ -7,4 +7,5 @@ public interface ITurmaServices
     Turma CadastraTurma(Turma turmaParaCadastrar);
     List<Turma> BuscarTodasTurmas();
     Turma EditarTurma(Turma turmaParaEditar);
+    void DeletarTurma(int turmaId);
 }

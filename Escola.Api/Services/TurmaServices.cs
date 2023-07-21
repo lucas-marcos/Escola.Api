@@ -33,6 +33,15 @@ public class TurmaServices : ITurmaServices
 
         return turmaCadastrada;
     }
+
+    public void DeletarTurma(int turmaId)
+    {
+        var turma = _turmaRepository.BuscarPorId(turmaId) ?? throw new PontoIdException("Não foi possível encontrar a turma");
+        
+        _turmaRepository.Remover(turmaId);
+        _turmaRepository.Salvar();
+    }
     
     public List<Turma> BuscarTodasTurmas() => _turmaRepository.BuscarTodosComIncludes().ToList();
+    
 }

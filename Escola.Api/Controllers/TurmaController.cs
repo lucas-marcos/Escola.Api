@@ -42,4 +42,12 @@ public class TurmaController : ControllerBase
         
         return Ok(_mapper.Map<TurmaTO>(turma));
     }
+
+    [HttpDelete, Route("{id}")]
+    public ActionResult DeletarTurma(int id)
+    {
+        _turmaServices.DeletarTurma(id);
+        
+        return Ok();
+    }
 }
