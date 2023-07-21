@@ -1,11 +1,9 @@
-﻿namespace Escola.Api.Models.TO;
+﻿namespace Escola.Api.Models.DTO;
 
-public class TurmaTO
+public class TurmaDTOBase
 {
-    public int Id { get; set; }
     public string Nome { get; set; }
     public int Numero { get; set; }
     public string Descricao { get; set; }
-    public string Escola { get; set; }
     public int EscolaId { get; set; }
 }

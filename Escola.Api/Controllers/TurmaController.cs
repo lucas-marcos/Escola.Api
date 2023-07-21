@@ -27,4 +27,19 @@ public class TurmaController : ControllerBase
         return Ok(_mapper.Map<TurmaTO>(turma));
     }
     
+    [HttpGet]
+    public ActionResult<TurmaTO> RetornarTodasTurmas()
+    {
+        var turmas =  _turmaServices.BuscarTodasTurmas();
+        
+        return Ok(_mapper.Map<List<TurmaTO>>(turmas));
+    }
+
+    [HttpPut]
+    public ActionResult<TurmaTO> EditarTurma(TurmaParaEditarDTO turmaParaEditar)
+    {
+        var turma = _turmaServices.EditarTurma(_mapper.Map<Turma>(turmaParaEditar));
+        
+        return Ok(_mapper.Map<TurmaTO>(turma));
+    }
 }

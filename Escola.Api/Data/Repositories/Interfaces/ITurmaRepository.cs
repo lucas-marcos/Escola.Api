@@ -4,5 +4,5 @@ namespace Escola.Api.Data.Repositories.Interfaces;
 
 public interface ITurmaRepository : IRepository<Turma>
 {
-    
+    IQueryable<Turma> BuscarTodosComIncludes();
 }

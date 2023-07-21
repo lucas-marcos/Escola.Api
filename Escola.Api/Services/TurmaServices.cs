@@ -1,4 +1,5 @@
 ﻿using Escola.Api.Data.Repositories.Interfaces;
+using Escola.Api.Framework;
 using Escola.Api.Models;
 using Escola.Api.Services.Interfaces;
 
@@ -20,4 +21,18 @@ public class TurmaServices : ITurmaServices
 
         return turmaParaCadastrar;
     }
+
+    public Turma EditarTurma(Turma turmaParaEditar)
+    {
+        var turmaCadastrada = _turmaRepository.BuscarPorId(turmaParaEditar.Id) ?? throw new PontoIdException("Não foi possível encontrar a turma na base de dados");
+        
+        turmaCadastrada.Atualizar(turmaParaEditar);
+        
+        _turmaRepository.Atualizar(turmaCadastrada);
+        _turmaRepository.Salvar();
+
+        return turmaCadastrada;
+    }
+    
+    public List<Turma> BuscarTodasTurmas() => _turmaRepository.BuscarTodosComIncludes().ToList();
 }
