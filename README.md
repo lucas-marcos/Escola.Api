@@ -24,6 +24,6 @@ Esse projeto apresenta uma solução WEB que possibilita realizar o CRUD de Esco
 
 
 
-- Após a configuração do appsettings, abra o terminal na pasta do projeto e digite o seguinte comando: `dotnet ef update --project .\Escola.Api\`
+- Após a configuração do appsettings, abra o terminal na pasta do projeto e digite o seguinte comando: `dotnet ef database update --project .\Escola.Api\`
 
 
