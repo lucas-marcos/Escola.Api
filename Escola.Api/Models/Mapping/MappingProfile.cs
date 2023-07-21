@@ -11,5 +11,8 @@ public class MappingProfile : Profile
         CreateMap<EscolaParaCadastrarDTO, Escola>();
         CreateMap<EscolaParaEditarDTO, Escola>();
         CreateMap<Escola, EscolaTO>();
+
+        CreateMap<TurmaParaCadastrarDTO, Turma>();
+        CreateMap<Turma, TurmaTO>();
     }
 }
