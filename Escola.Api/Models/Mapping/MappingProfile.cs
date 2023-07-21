@@ -20,5 +20,15 @@ public class MappingProfile : Profile
             .ForMember(a => a.Id, b => b.MapFrom(c => c.Id))
             .ForMember(a => a.Nome, b => b.MapFrom(c => c.Nome));
         CreateMap<TurmaParaEditarDTO, Turma>();
+
+        CreateMap<AlunoParaCadastrarDTO, Aluno>();
+        CreateMap<Aluno, AlunoTO>()
+            .ForMember( a => a.Id, b => b.MapFrom(c => c.Id))
+            .ForMember( a => a.Nome, b => b.MapFrom(c => c.Nome))
+            .ForMember( a => a.Cpf, b => b.MapFrom(c => c.Cpf))
+            .ForMember( a => a.Endereco, b => b.MapFrom(c => c.Endereco))
+            .ForMember( a => a.Idade, b => b.MapFrom(c => c.Idade))
+            .ForMember( a => a.Turma, b => b.MapFrom(c => c.Turma.Nome))
+            .ForMember( a => a.TurmaId, b => b.MapFrom(c => c.TurmaId));
     }
 }
