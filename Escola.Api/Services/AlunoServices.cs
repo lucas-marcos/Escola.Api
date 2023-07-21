@@ -1,4 +1,5 @@
 ﻿using Escola.Api.Data.Repositories.Interfaces;
+using Escola.Api.Framework;
 using Escola.Api.Models;
 using Escola.Api.Services.Interfaces;
 
@@ -21,5 +22,25 @@ public class AlunoServices : IAlunoServices
         return aluno;
     }
 
+    public Aluno EditarAluno(Aluno alunoParaEditar)
+    {
+        var alunoCadastrado = _alunoRepository.BuscarPorId(alunoParaEditar.Id) ?? throw new PontoIdException("Aluno não encontrado");
+        
+        alunoCadastrado.Atualizar(alunoParaEditar);
+        
+        _alunoRepository.Atualizar(alunoCadastrado);
+        _alunoRepository.Salvar();
+        
+        return alunoCadastrado;
+    }
+
+    public void DeletarAluno(int alunoId)
+    {
+        var aluno = _alunoRepository.BuscarPorId(alunoId) ?? throw new PontoIdException("Aluno não encontrado");
+        
+        _alunoRepository.Remover(alunoId);
+        _alunoRepository.Salvar();
+    }
+    
     public List<Aluno> BuscarTodosAlunos() => _alunoRepository.BuscarTodosComIncludes().ToList();
 }

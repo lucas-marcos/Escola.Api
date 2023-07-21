@@ -30,5 +30,7 @@ public class MappingProfile : Profile
             .ForMember( a => a.Idade, b => b.MapFrom(c => c.Idade))
             .ForMember( a => a.Turma, b => b.MapFrom(c => c.Turma.Nome))
             .ForMember( a => a.TurmaId, b => b.MapFrom(c => c.TurmaId));
+        
+        CreateMap<AlunoParaEditarDTO, Aluno>();
     }
 }

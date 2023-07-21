@@ -33,5 +33,21 @@ public class AlunoController : ControllerBase
         var alunos = _alunoServices.BuscarTodosAlunos();
         
         return Ok(_mapper.Map<List<AlunoTO>>(alunos));
-    } 
+    }
+
+    [HttpPut]
+    public ActionResult<AlunoTO> EditarAluno(AlunoParaEditarDTO alunoParaEditar)
+    {
+        var aluno = _alunoServices.EditarAluno(_mapper.Map<Aluno>(alunoParaEditar));
+        
+        return Ok(_mapper.Map<AlunoTO>(aluno));
+    }
+    
+    [HttpDelete("{id}")]
+    public ActionResult DeletarAluno(int id)
+    {
+         _alunoServices.DeletarAluno(id);
+        
+        return Ok();
+    }
 }
